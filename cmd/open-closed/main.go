@@ -31,7 +31,10 @@ func main() {
 
 	// Instead of modifying the Product to add an offer, we Extended this Module by creating the ProductOffer
 	// To do so, we must use a common interface (ProductInterface) which has all the functions we need
-	products = append(products, product.NewProductOffer("Sirloin Steak", meat, 7.50, 2, 0.30))
+	products = append(products, product.NewProductOffer(
+		product.NewProduct("Sirloin Steak", meat, 7.50, 2),
+		0.30),
+	)
 
 	for coin, tax := range taxMap {
 		fmt.Printf("Total %s: $ %.2f (Tax Included)\n", coin, GetTotal(products, tax))
