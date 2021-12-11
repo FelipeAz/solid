@@ -21,15 +21,3 @@ func NewProduct(name string, category category.Category, price float64, amount i
 func (p Product) GetPriceWithTax(tax float64) float64 {
 	return p.Price * (tax + p.Category.Tax) * float64(p.Amount)
 }
-
-//GetTotal should not be responsible to calculate the products price
-func GetTotal(products []Product, tax float64) (total float64) {
-	for _, p := range products {
-		// Good
-		total += p.GetPriceWithTax(tax)
-
-		// Bad
-		// total += p.price * tax -> generate coupling
-	}
-	return
-}

@@ -31,6 +31,18 @@ func main() {
 	products = append(products, product.NewProduct("Sirloin Steak", meat, 7.50, 2))
 
 	for coin, tax := range taxMap {
-		fmt.Printf("Total %s: $ %.2f (Tax Included)\n", coin, product.GetTotal(products, tax))
+		fmt.Printf("Total %s: $ %.2f (Tax Included)\n", coin, GetTotal(products, tax))
 	}
+}
+
+//GetTotal should not be responsible to calculate the products price
+func GetTotal(products []product.Product, tax float64) (total float64) {
+	for _, p := range products {
+		// Good
+		total += p.GetPriceWithTax(tax)
+
+		// Bad
+		// total += p.price * tax -> generate coupling
+	}
+	return
 }
