@@ -19,7 +19,7 @@ func NewProduct(name string, category category.Category, price float64, amount i
 }
 
 func (p Product) GetPriceWithTax(tax float64) float64 {
-	return p.Price * (tax + p.Category.Tax)
+	return p.Price * (tax + p.Category.Tax) * float64(p.Amount)
 }
 
 //GetTotal should not be responsible to calculate the products price
