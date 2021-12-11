@@ -31,7 +31,10 @@ func main() {
 	products = append(products, product.NewProduct("Water Bottle", beverage, 0.25, 1))
 	products = append(products, product.NewProduct("Zero Coke", beverage, 0.95, 5))
 	products = append(products, product.NewProduct("Coffee Mocha", hotBeverages, 2.50, 1))
-	products = append(products, product.NewProductOffer("Sirloin Steak", meat, 7.50, 2, 0.30))
+	products = append(products, product.NewProductOffer(
+		product.NewProduct("Sirloin Steak", meat, 7.50, 2),
+		0.30),
+	)
 
 	for coin, tax := range taxMap {
 		fmt.Printf("Total %s: $ %.2f (Tax Included)\n", coin, GetTotal(products, tax))
