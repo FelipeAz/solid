@@ -5,7 +5,7 @@ import (
 )
 
 /*** Single Responsibility Principle (SRP) ***/
-/****** "Do one thing and do it well" ******/
+/* “Do one thing and do it well” — McIlroy (Unix philosophy) */
 
 /*
 The Single Responsibility Principle suggests that your class should have only one responsibility embedded to it and
